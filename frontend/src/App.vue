@@ -1,27 +1,29 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
+import NavBar from './components/NavBar.vue'
+import AppFooter from './components/AppFooter.vue'
+// import ArticlePage from './views/ArticlePage.vue'
 
-// import HelloWorld from './components/HelloWorld.vue'
 </script>
 
+
 <template>
-  <header>
-    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
+  <div class="wrapper">
 
-    <div class="wrapper">
-      <!-- <HelloWorld msg="You did it!" /> -->
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+    <div class="app-nav-bar">
+      <NavBar />
     </div>
-    
-  </header>
 
-  <RouterView />
+    <main>
+      <RouterView />
+    </main>
+
+    <div class="app-footer">
+        <AppFooter />
+    </div>
+
+  </div>
 </template>
-
 
 
 <style scoped>

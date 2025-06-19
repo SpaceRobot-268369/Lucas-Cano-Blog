@@ -1,11 +1,13 @@
 <template>
+    <div class="container"></div>
     <div>
         <h1>Test</h1>
         <p>Test home page</p>
     </div>
     <div>
         <h1>backend response</h1>
-        <p>{{ data }}</p>
+        <p v-if="data">{{ data }}</p>
+        <p v-else>not connected to the backend server</p>
     </div>
 </template>
 
@@ -27,3 +29,25 @@ onMounted(() => {
 });
 
 </script>
+
+
+<style scoped>
+.container {
+    background-color: aliceblue;
+}
+
+.dark .container{
+    background-color: black;
+}
+
+h1, p {
+    color: black;
+}
+
+
+.dark h1,
+.dark p {
+  color: aliceblue;
+}
+
+</style>
