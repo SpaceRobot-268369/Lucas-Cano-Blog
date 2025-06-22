@@ -1,9 +1,11 @@
 <template>
   <footer>
-    <p>Test</p>
     <button @click="toggleTheme" class="theme-toggle">
       {{ label }}
     </button>
+    <br>
+    <br>
+    <img class="rss-icon" src="../assets/rss_icon.png" alt="rss icon">
 
   </footer>
 </template>
@@ -62,10 +64,21 @@ onMounted(() => {
 })
 </script>
 
+<style>
+:root {
+  --footer-bg: #fefefe;
+  --text-color: #2c3e50;
+}
+
+.dark {
+  --footer-bg: #202029;
+  --text-color: rgb(255, 255, 255);
+}
+</style>
+
 <style scoped>
 footer {
   text-align: center;
-  padding: 2rem;
   transition: background-color 0.3s;
   color: var(--text-color);
   background-color: var(--footer-bg);
@@ -86,17 +99,8 @@ footer {
 .theme-toggle:hover {
   background-color: rgba(255, 255, 255, 0.05);
 }
-</style>
 
-<!-- Global CSS Variables for Theming -->
-<style>
-:root {
-  --footer-bg: #fefefe;
-  --text-color: #2c3e50;
-}
-
-.dark {
-  --footer-bg: #202029;
-  --text-color: rgb(255, 255, 255);
+.rss-icon {
+  max-width: 25px;
 }
 </style>

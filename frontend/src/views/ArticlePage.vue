@@ -1,13 +1,18 @@
 <template>
-
-
   <div class="card">
+
+    <!-- skeleton -->
     <div v-if="loading" class="skeleton-wrapper">
       <div class="skeleton skeleton-title"></div>
-      <div class="skeleton skeleton-text"></div>
-      <div class="skeleton skeleton-text short"></div>
+      <div class="skeleton skeleton-description"></div>
+      <br>
+      <div v-for="skeleton in skeletonLength" v-bind:key="skeleton">
+        <div class="skeleton skeleton-text"></div>
+        <!-- <div class="skeleton skeleton-text short"></div> -->
+      </div>
     </div>
 
+    <!-- content -->
     <div v-else class="content">
       <h2>{{ article.title }}</h2>
       <p>{{ article.body }}</p>
@@ -23,6 +28,7 @@ import { ref, onMounted } from 'vue'
 
 const loading = ref(true)
 const article = ref({ title: '', body: '' })
+const skeletonLength = ref(30)
 
 onMounted(async () => {
 //   const res = await fetch('https://jsonplaceholder.typicode.com/posts/1')
@@ -38,10 +44,13 @@ onMounted(async () => {
 
 
 .card {
-  max-width: 600px;
+  max-width: 800px;
+  height: auto;
   margin: 2rem auto;
   padding: 1.5rem;
-  border-radius: 12px;
+  /* margin-left: auto;
+  margin-right: 50px; */
+  border-radius: 2px;
   background-color: var(--card-bg);
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   transition: background-color 0.3s ease;
@@ -73,13 +82,19 @@ onMounted(async () => {
 }
 
 .skeleton-title {
+  height: 50px;
+  width: 75%;
+}
+
+
+.skeleton-description {
   height: 20px;
-  width: 60%;
+  width: 30%;
 }
 
 .skeleton-text {
   height: 14px;
-  width: 90%;
+  width: 100%;
 }
 
 .skeleton-text.short {
